@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-import Home from "./components/Home";
+import Home from "./components/Home/Home";
 import Shop from "./components/Shop";
 import Mens from "./components/Mens";
 import Womens from "./components/Womens";

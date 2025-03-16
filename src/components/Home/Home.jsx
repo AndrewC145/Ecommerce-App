@@ -1,8 +1,8 @@
 import Hero from "./Hero";
 import About from "./About";
 import HeroClothing from "./HeroClothing";
-import womensStreetwear from "../assets/images/womens-streetwear.jpg";
-import mensStreetwear from "../assets/images/mens-streetwear.jpg";
+import womensStreetwear from "../../assets/images/womens-streetwear.jpg";
+import mensStreetwear from "../../assets/images/mens-streetwear.jpg";
 
 function Home() {
   return (
