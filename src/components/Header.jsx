@@ -3,7 +3,7 @@ import bagIcon from "../assets/shopping-bag.svg";
 
 function Header() {
   return (
-    <nav className="sticky top-0 flex w-full items-center bg-[#FEF9F3] p-4 font-roboto font-light">
+    <nav className="sticky top-0 z-50 flex w-full items-center bg-[#FEF9F3] p-4 font-roboto font-light">
       <div className="flex flex-1">
         <ul className="flex gap-4">
           <li>
