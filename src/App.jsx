@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-import Hero from "./components/Hero";
+import Home from "./components/Home";
 import Shop from "./components/Shop";
 import Mens from "./components/Mens";
 import Womens from "./components/Womens";
@@ -11,7 +11,7 @@ function App() {
     <BrowserRouter>
       <Header></Header>
       <Routes>
-        <Route index path="/" element={<Hero />}></Route>
+        <Route index path="/" element={<Home />}></Route>
         <Route path="Shop" element={<Shop />}></Route>
         <Route path="Shop/Mens" element={<Mens />}></Route>
         <Route path="Shop/Womens" element={<Womens />}></Route>
