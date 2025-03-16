@@ -8,7 +8,10 @@ function Hero() {
           <h1 className="font-roboto text-xl md:text-3xl lg:text-6xl xl:text-7xl">
             You Deserve A New Look
           </h1>
-          <Link className="w-40 rounded-md bg-[#FEF9F3] p-2 font-medium text-black" to="Shop">
+          <Link
+            className="w-40 rounded-md bg-[#FEF9F3] p-2 font-medium text-black transition duration-300 hover:bg-[#ccc8c3]"
+            to="Shop"
+          >
             SHOP NOW
           </Link>
         </div>
