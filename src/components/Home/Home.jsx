@@ -2,6 +2,7 @@ import Hero from "./Hero";
 import About from "./About";
 import HeroClothing from "./HeroClothing";
 import Deal from "./Deal";
+import HomeItems from "./HomeItems";
 import womensStreetwear from "../../assets/images/womens-streetwear.jpg";
 import mensStreetwear from "../../assets/images/mens-streetwear.jpg";
 
@@ -15,6 +16,7 @@ function Home() {
         <HeroClothing category="Womens" image={womensStreetwear}></HeroClothing>
       </div>
       <Deal></Deal>
+      <HomeItems></HomeItems>
     </main>
   );
 }
