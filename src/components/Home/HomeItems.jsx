@@ -8,7 +8,12 @@ function HomeItems() {
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((response) => response.json())
-      .then((data) => data.filter((product) => product.category === "men's clothing"))
+      .then((data) =>
+        data.filter(
+          (product) =>
+            product.category === "men's clothing" || product.category === "women's clothing",
+        ),
+      )
       .then((data) => console.log(data))
       .catch((error) => console.log(error));
   }, []);
