@@ -10,13 +10,13 @@ function Header() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="Shop">Shop</Link>
+            <Link to="shop">Shop</Link>
           </li>
           <li>
-            <Link to="Shop/Mens">Mens</Link>
+            <Link to="shop/mens">Mens</Link>
           </li>
           <li>
-            <Link to="Shop/Womens">Womens</Link>
+            <Link to="shop/womens">Womens</Link>
           </li>
         </ul>
       </div>

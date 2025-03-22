@@ -12,9 +12,9 @@ function App() {
       <Header></Header>
       <Routes>
         <Route index path="/" element={<Home />}></Route>
-        <Route path="Shop" element={<Shop />}></Route>
-        <Route path="Shop/Mens" element={<Mens />}></Route>
-        <Route path="Shop/Womens" element={<Womens />}></Route>
+        <Route path="shop" element={<Shop />}></Route>
+        <Route path="shop/mens" element={<Mens />}></Route>
+        <Route path="shop/womens" element={<Womens />}></Route>
         <Route path="cart" element={<Cart />}></Route>
       </Routes>
     </BrowserRouter>
