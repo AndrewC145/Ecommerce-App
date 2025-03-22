@@ -14,7 +14,7 @@ function HomeItems() {
             product.category === "men's clothing" || product.category === "women's clothing",
         ),
       )
-      .then((data) => data.slice(1, 6))
+      .then((data) => data.slice(1, 5))
       .then((data) => setHomeProducts(data))
       .catch((error) => console.log(error));
   }, []);
