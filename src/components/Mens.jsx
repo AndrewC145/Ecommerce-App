@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import useFetchProducts from "./useFetchProducts";
 import ProductCard from "./ProductCard";
 import CategoryHeader from "./CategoryHeader";
+import LoadError from "./LoadError";
 
 function Mens() {
   const { products, error } = useFetchProducts();
@@ -9,11 +10,7 @@ function Mens() {
 
   if (error) {
     console.error(error);
-    return (
-      <div className="flex h-screen items-center justify-center">
-        <p className="text-4xl">Something went wrong!</p>
-      </div>
-    );
+    return <LoadError />;
   }
   return (
     <div className="p-4 md:p-8 lg:p-10 xl:p-12">

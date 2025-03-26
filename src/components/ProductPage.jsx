@@ -1,5 +1,6 @@
 import { useState } from "react";
 import useFetchProducts from "./useFetchProducts";
+import LoadError from "./LoadError";
 
 function ProductPage() {
   const { products, error } = useFetchProducts();
@@ -10,11 +11,7 @@ function ProductPage() {
 
   if (error) {
     console.error(error);
-    return (
-      <div className="flex h-screen items-center justify-center">
-        <p className="text-4xl">Something went wrong!</p>
-      </div>
-    );
+    return <LoadError />;
   }
 
   if (!product) {

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import ProductCard from "../ProductCard";
 import useFetchProducts from "../useFetchProducts";
+import LoadError from "../LoadError";
 
 function HomeItems() {
   const { products, error } = useFetchProducts();
@@ -8,7 +9,7 @@ function HomeItems() {
 
   if (error) {
     console.log(error);
-    return <p>Something went wrong!</p>;
+    return <LoadError />;
   }
 
   return (

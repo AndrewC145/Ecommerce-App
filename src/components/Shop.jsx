@@ -2,6 +2,7 @@ import useFetchProducts from "./useFetchProducts";
 import { Link } from "react-router-dom";
 import ProductCard from "./ProductCard";
 import CategoryHeader from "./CategoryHeader";
+import LoadError from "./LoadError";
 
 function Shop() {
   const { products, error } = useFetchProducts();
@@ -9,11 +10,7 @@ function Shop() {
 
   if (error) {
     console.error(error);
-    return (
-      <div className="flex h-screen items-center justify-center">
-        <p className="text-4xl">Something went wrong!</p>
-      </div>
-    );
+    return <LoadError />;
   }
 
   return (
