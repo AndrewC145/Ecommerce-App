@@ -1,6 +1,8 @@
 import { CartContext } from "../App";
 
-function Cart({}) {
+function Cart() {
+  const { cartItems } = useContext(CartContext);
+
   return (
     <div>
       <h1>Cart</h1>

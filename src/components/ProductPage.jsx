@@ -1,9 +1,11 @@
 import { useState } from "react";
 import useFetchProducts from "./useFetchProducts";
+import { CartContext } from "../App";
 import LoadError from "./LoadError";
 
 function ProductPage() {
   const { products, error } = useFetchProducts();
+  const { cartItems, setCartItems } = useContext(CartContext);
   const [quantity, setQuantity] = useState(0);
   const idName = Number(window.location.pathname.split("/")[2]);
 
