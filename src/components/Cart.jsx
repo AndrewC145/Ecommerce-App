@@ -1,6 +1,6 @@
-function Cart({ cartItems }) {
-  console.log(cartItems);
+import { CartContext } from "../App";
 
+function Cart({}) {
   return (
     <div>
       <h1>Cart</h1>
