@@ -9,6 +9,8 @@ import Cart from "./components/Cart";
 import ProductPage from "./components/ProductPage";
 
 function App() {
+  const cartItems = [];
+
   return (
     <BrowserRouter>
       <Header></Header>
@@ -18,7 +20,7 @@ function App() {
         <Route path="shop/mens" element={<Mens />}></Route>
         <Route path="shop/womens" element={<Womens />}></Route>
         <Route path="product/:id" element={<ProductPage />}></Route>
-        <Route path="cart" element={<Cart />}></Route>
+        <Route path="cart" element={<Cart cartItems={cartItems} />}></Route>
       </Routes>
       <Footer></Footer>
     </BrowserRouter>

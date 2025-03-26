@@ -9,6 +9,14 @@ function ProductPage() {
 
   const product = products ? products.find((product) => product.id === idName) : null;
 
+  const handleQuantity = (e) => {
+    if (e.target.value <= 0) {
+      return;
+    } else {
+      setQuantity(e.target.value);
+    }
+  };
+
   if (error) {
     console.error(error);
     return <LoadError />;
@@ -21,6 +29,15 @@ function ProductPage() {
       </div>
     );
   }
+
+  const handleAddToCart = () => {
+    if (quantity <= 0) {
+      return;
+    } else {
+      console.log(`Added ${quantity} ${product.title} to cart`);
+      setQuantity(0);
+    }
+  };
 
   return (
     <div className="h-screen px-4 md:px-8 lg:px-10 xl:px-12">
@@ -37,6 +54,27 @@ function ProductPage() {
             </h2>
             <p className="text-base font-semibold sm:text-lg md:text-xl">${product.price}</p>
             <p className="text-sm sm:text-base md:text-lg">{product.description}</p>
+            <div className="lg:md-6 mt-4 flex items-center gap-4">
+              <label htmlFor="quantity" className="sr-only text-sm sm:text-base md:text-lg">
+                Quantity:
+              </label>
+              <input
+                type="number"
+                id="quantity"
+                name="quantity"
+                min="0"
+                max="10"
+                value={quantity}
+                onChange={handleQuantity}
+                className="h-full rounded-sm border border-gray-300 p-2 text-center text-sm md:p-3 md:text-lg"
+              />
+              <button
+                className="transform cursor-pointer rounded-md bg-red-100 p-2 text-sm duration-150 hover:bg-red-200 md:p-3 md:text-lg"
+                onClick={handleAddToCart}
+              >
+                Add to Cart
+              </button>
+            </div>
           </div>
         </div>
       </div>
