@@ -5,7 +5,7 @@ import LoadError from "./LoadError";
 
 function ProductPage() {
   const { products, error } = useFetchProducts();
-  const { cartItems, setCartItems } = useContext(CartContext);
+  const { setCartItems } = useContext(CartContext);
   const [quantity, setQuantity] = useState(0);
   const idName = Number(window.location.pathname.split("/")[2]);
 
@@ -24,8 +24,11 @@ function ProductPage() {
       return;
     }
 
-    setCartItems([...cartItems, { ...product, quantity: Number(quantity) }]);
-    console.log(cartItems);
+    setCartItems((prevItems) => {
+      const updatedItems = [...prevItems, { ...product, quantity: Number(quantity) }];
+      console.log(updatedItems);
+      return updatedItems;
+    });
   };
 
   if (error) {
