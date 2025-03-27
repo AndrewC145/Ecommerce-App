@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import CategoryHeader from "./CategoryHeader";
 import CartContext from "./CartContext";
+import Button from "./Button";
 
 function Cart() {
   const { cartItems } = useContext(CartContext);
@@ -12,9 +13,7 @@ function Cart() {
         <CategoryHeader category={"Cart"} />
         <h1 className="text-center text-xl md:text-2xl lg:text-3xl">Your cart is empty</h1>
         <Link to={"/shop"}>
-          <button className="mt-7 transform cursor-pointer rounded-md bg-red-100 p-2 text-sm duration-150 hover:bg-red-200 md:mt-10 md:p-3 md:text-lg">
-            Continue Shopping
-          </button>
+          <Button text={"Continue Shopping"} />
         </Link>
       </div>
     );
@@ -31,6 +30,20 @@ function Cart() {
             <p>Total</p>
           </div>
         </div>
+        {cartItems.map((item) => (
+          <div key={item.id} className="flex flex-col">
+            <div className="flex items-center py-4 md:py-6 xl:py-8">
+              <img className="size-52 object-contain" src={item.image}></img>
+              <div>
+                <p>{item.title}</p>
+                <p>{item.price}</p>
+                <button className="mt-3 transform cursor-pointer rounded-md bg-red-100 p-2 text-sm duration-150 hover:bg-red-200 md:p-3 md:text-lg">
+                  Remove
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

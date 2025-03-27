@@ -1,6 +1,8 @@
 import { useState, useContext } from "react";
 import useFetchProducts from "./useFetchProducts";
 import CartContext from "./CartContext";
+import Button from "./Button";
+import Loading from "./Loading";
 import LoadError from "./LoadError";
 
 function ProductPage() {
@@ -26,7 +28,6 @@ function ProductPage() {
 
     setCartItems((prevItems) => {
       const updatedItems = [...prevItems, { ...product, quantity: Number(quantity) }];
-      console.log(updatedItems);
       return updatedItems;
     });
   };
@@ -37,11 +38,7 @@ function ProductPage() {
   }
 
   if (!product) {
-    return (
-      <div className="flex h-screen items-center justify-center">
-        <p className="text-4xl">Loading...</p>
-      </div>
-    );
+    <Loading />;
   }
 
   return (
@@ -73,12 +70,7 @@ function ProductPage() {
                 onChange={handleQuantity}
                 className="h-full rounded-sm border border-gray-300 p-2 text-center text-sm md:p-3 md:text-lg"
               />
-              <button
-                className="transform cursor-pointer rounded-md bg-red-100 p-2 text-sm duration-150 hover:bg-red-200 md:p-3 md:text-lg"
-                onClick={handleAddToCart}
-              >
-                Add to Cart
-              </button>
+              <Button text={"Add to Cart"} onClick={handleAddToCart} />
             </div>
           </div>
         </div>
