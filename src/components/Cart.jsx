@@ -11,7 +11,9 @@ function Cart() {
     return (
       <div className="flex h-screen flex-col items-center">
         <CategoryHeader category={"Cart"} />
-        <h1 className="text-center text-xl md:text-2xl lg:text-3xl">Your cart is empty</h1>
+        <h1 className="mb-4 text-center text-xl md:mb-6 md:text-2xl lg:text-3xl xl:mb-8">
+          Your cart is empty
+        </h1>
         <Link to={"/shop"}>
           <Button text={"Continue Shopping"} />
         </Link>
