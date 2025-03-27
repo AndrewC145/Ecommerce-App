@@ -3,13 +3,13 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./components/Home/Home";
 import Shop from "./components/Shop";
-import { useState, createContext } from "react";
+import { useState } from "react";
 import Mens from "./components/Mens";
 import Womens from "./components/Womens";
 import Cart from "./components/Cart";
 import ProductPage from "./components/ProductPage";
 import LoadError from "./components/LoadError";
-export const CartContext = createContext();
+import CartContext from "./components/CartContext";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);

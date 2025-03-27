@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import useFetchProducts from "./useFetchProducts";
-import { CartContext } from "../App";
+import CartContext from "./CartContext";
 import LoadError from "./LoadError";
 
 function ProductPage() {
@@ -19,6 +19,15 @@ function ProductPage() {
     }
   };
 
+  const handleAddToCart = () => {
+    if (quantity <= 0) {
+      return;
+    }
+
+    setCartItems([...cartItems, { ...product, quantity: Number(quantity) }]);
+    console.log(cartItems);
+  };
+
   if (error) {
     console.error(error);
     return <LoadError />;
@@ -31,15 +40,6 @@ function ProductPage() {
       </div>
     );
   }
-
-  const handleAddToCart = () => {
-    if (quantity <= 0) {
-      return;
-    } else {
-      console.log(`Added ${quantity} ${product.title} to cart`);
-      setQuantity(0);
-    }
-  };
 
   return (
     <div className="h-screen px-4 md:px-8 lg:px-10 xl:px-12">
