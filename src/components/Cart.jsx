@@ -70,7 +70,10 @@ function Cart() {
           </div>
         </div>
         {cartItems.map((item) => (
-          <div key={item.id} className="flex w-full flex-col justify-between p-4 md:flex-row">
+          <div
+            key={item.id}
+            className="flex w-full flex-col justify-between border-b-1 border-gray-300 p-4 md:flex-row md:py-6"
+          >
             <div className="flex w-2/3 items-center gap-4">
               <img src={item.image} alt={item.title} className="size-52 object-contain" />
               <div className="flex flex-col gap-2">
@@ -104,10 +107,16 @@ function Cart() {
           </div>
         ))}
       </div>
-      <div>
-        <div>
+      <div className="float-right mr-4 h-[70vh] w-80 sm:mr-6 md:mr-8 lg:mr-10 xl:mr-12">
+        <div className="flex justify-between gap-8 text-xl font-semibold sm:text-2xl">
           <p>Subtotal</p>
-          <p>{total.toFixed(2)}</p>
+          <p>${total.toFixed(2)}</p>
+        </div>
+        <p className="my-4 text-center text-sm text-gray-500 sm:mb-6 md:mb-7 lg:mb-8">
+          Shipping and taxes calculated at checkout
+        </p>
+        <div className="flex justify-center">
+          <Button text={"Checkout"} />
         </div>
       </div>
     </div>
