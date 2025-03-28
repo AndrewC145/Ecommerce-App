@@ -1,24 +1,39 @@
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import CategoryHeader from "./CategoryHeader";
 import CartContext from "./CartContext";
 import Button from "./Button";
 
 function Cart() {
-  const { setCartItems, cartItems } = useContext(CartContext);
+  const [total, setTotal] = useState(0);
+  const { cartItems, setCartItems } = useContext(CartContext);
 
   const removeItem = (id) => {
     const updatedItems = cartItems.filter((item) => item.id !== id);
     setCartItems(updatedItems);
+    calculateTotal();
+  };
+
+  const calculateTotal = () => {
+    const totalAmount = cartItems.reduce((prev, curr) => {
+      return (prev += curr.price * curr.quantity);
+    }, 0);
+
+    setTotal(totalAmount);
   };
 
   const handleQuantityChange = (e, id) => {
     const newQuantity = Number(e.target.value);
-    const updatedItems = cartItems.map((item) =>
-      item.id === id ? { ...item, quantity: newQuantity } : item,
-    );
+    const updatedItems = cartItems.map((item) => {
+      if (item.id === id) {
+        return { ...item, quantity: newQuantity };
+      } else {
+        return item;
+      }
+    });
+
     setCartItems(updatedItems);
-    console.log(updatedItems);
+    calculateTotal();
   };
 
   if (!cartItems.length) {
@@ -72,7 +87,7 @@ function Cart() {
                 placeholder="1"
                 min="1"
                 max="10"
-                onChange={(e, id) => handleQuantityChange(e, id)}
+                onChange={(e) => handleQuantityChange(e, item.id)}
                 defaultValue={item.quantity}
                 className="w-10 rounded-sm border border-gray-300 p-0.5 text-center text-sm md:text-lg"
               />
@@ -80,6 +95,12 @@ function Cart() {
             </div>
           </div>
         ))}
+      </div>
+      <div>
+        <div>
+          <p>Subtotal</p>
+          <p>{total.toFixed(2)}</p>
+        </div>
       </div>
     </div>
   );
