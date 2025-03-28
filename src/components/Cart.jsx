@@ -62,9 +62,9 @@ function Cart() {
     <div>
       <CategoryHeader category={"Cart"} />
       <div className="p-4 md:p-8 lg:p-10 xl:p-12">
-        <div className="flex justify-between border-b border-black p-4">
+        <div className="flex w-full justify-between border-b border-black p-4">
           <h2>Product</h2>
-          <div className="flex w-1/3 justify-between">
+          <div className="flex w-full justify-end sm:w-1/3 sm:justify-between">
             <p className="hidden sm:block">Quantity</p>
             <p>Total</p>
           </div>
@@ -72,9 +72,9 @@ function Cart() {
         {cartItems.map((item) => (
           <div
             key={item.id}
-            className="flex w-full flex-col justify-between border-b-1 border-gray-300 p-4 sm:flex-row md:py-6"
+            className="flex w-full justify-between border-b-1 border-gray-300 p-4 sm:flex-row md:py-6"
           >
-            <div className="flex w-3/5 items-center gap-4 md:w-2/3">
+            <div className="flex w-3/5 flex-col items-start gap-4 sm:flex-row sm:items-center md:w-2/3">
               <div className="size-24 lg:size-44 xl:size-52">
                 <img
                   src={item.image}
@@ -93,7 +93,7 @@ function Cart() {
                 </button>
               </div>
             </div>
-            <div className="flex w-1/3 items-center justify-between">
+            <div className="flex flex-col items-center justify-center sm:w-1/3 sm:flex-row sm:justify-between">
               <label htmlFor="quantity" className="sr-only text-sm sm:text-base md:text-lg">
                 Quantity:
               </label>
@@ -108,12 +108,12 @@ function Cart() {
                 defaultValue={item.quantity}
                 className="w-10 rounded-sm border border-gray-300 p-0.5 text-center text-sm md:text-lg"
               />
-              <p>${(item.price * item.quantity).toFixed(2)}</p>
+              <p className="order-first">${(item.price * item.quantity).toFixed(2)}</p>
             </div>
           </div>
         ))}
       </div>
-      <div className="float-right mr-4 h-[70vh] w-80 sm:mr-6 md:mr-8 lg:mr-10 xl:mr-12">
+      <div className="mr-4 flex h-[70vh] w-full flex-col items-center p-4 sm:mr-6 md:mr-8 lg:mr-10 xl:mr-12">
         <div className="flex justify-between gap-8 text-xl font-semibold lg:text-2xl">
           <p>Subtotal</p>
           <p>${total.toFixed(2)}</p>
