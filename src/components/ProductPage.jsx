@@ -38,7 +38,7 @@ function ProductPage() {
   }
 
   if (!product) {
-    <Loading />;
+    return <Loading />;
   }
 
   return (
@@ -64,7 +64,8 @@ function ProductPage() {
                 type="number"
                 id="quantity"
                 name="quantity"
-                min="0"
+                placeholder="1"
+                min="1"
                 max="10"
                 value={quantity}
                 onChange={handleQuantity}
