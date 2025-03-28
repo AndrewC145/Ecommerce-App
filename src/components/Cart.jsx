@@ -72,13 +72,19 @@ function Cart() {
         {cartItems.map((item) => (
           <div
             key={item.id}
-            className="flex w-full flex-col justify-between border-b-1 border-gray-300 p-4 md:flex-row md:py-6"
+            className="flex w-full flex-col justify-between border-b-1 border-gray-300 p-4 sm:flex-row md:py-6"
           >
-            <div className="flex w-2/3 items-center gap-4">
-              <img src={item.image} alt={item.title} className="size-52 object-contain" />
+            <div className="flex w-3/5 items-center gap-4 md:w-2/3">
+              <div className="size-24 lg:size-44 xl:size-52">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="size-24 object-contain lg:size-44 xl:size-52"
+                />
+              </div>
               <div className="flex flex-col gap-2">
-                <p className="text-lg font-bold md:text-xl">{item.title}</p>
-                <p className="mb-3 text-base font-semibold md:text-lg">${item.price}</p>
+                <p className="w-[70%] text-base font-bold md:text-lg">{item.title}</p>
+                <p className="mb-3 text-base font-semibold">${item.price}</p>
                 <button
                   onClick={() => removeItem(item.id)}
                   className="w-30 transform cursor-pointer rounded-md bg-red-100 p-2 text-sm duration-150 hover:bg-red-200 md:text-lg"
@@ -108,7 +114,7 @@ function Cart() {
         ))}
       </div>
       <div className="float-right mr-4 h-[70vh] w-80 sm:mr-6 md:mr-8 lg:mr-10 xl:mr-12">
-        <div className="flex justify-between gap-8 text-xl font-semibold sm:text-2xl">
+        <div className="flex justify-between gap-8 text-xl font-semibold lg:text-2xl">
           <p>Subtotal</p>
           <p>${total.toFixed(2)}</p>
         </div>
