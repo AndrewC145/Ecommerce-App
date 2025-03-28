@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import CategoryHeader from "./CategoryHeader";
 import CartContext from "./CartContext";
@@ -21,6 +21,14 @@ function Cart() {
 
     setTotal(totalAmount);
   };
+
+  useEffect(() => {
+    calculateTotal();
+
+    return () => {
+      setTotal(0);
+    };
+  });
 
   const handleQuantityChange = (e, id) => {
     const newQuantity = Number(e.target.value);
