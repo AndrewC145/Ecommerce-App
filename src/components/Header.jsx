@@ -10,39 +10,14 @@ function Header() {
     <nav className="sticky top-0 z-50 flex w-full items-center bg-[#FEF9F3] p-4 font-roboto font-light">
       <div className="hidden sm:flex sm:flex-1">
         <ul className="flex gap-4">
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="shop">Shop</Link>
-          </li>
-          <li>
-            <Link to="shop/mens">Mens</Link>
-          </li>
-          <li>
-            <Link to="shop/womens">Womens</Link>
-          </li>
+          <Links />
         </ul>
       </div>
       <div className="relative w-full sm:hidden">
         <Hamburger toggled={isOpen} toggle={setOpen} />
         {isOpen && (
           <ul className="absolute flex flex-col gap-4 rounded bg-white p-4 shadow-lg">
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="shop">Shop</Link>
-            </li>
-            <li>
-              <Link to="shop/mens">Mens</Link>
-            </li>
-            <li>
-              <Link to="shop/womens">Womens</Link>
-            </li>
-            <li>
-              <Link to="cart">Cart</Link>
-            </li>
+            <Links />
           </ul>
         )}
       </div>
@@ -59,3 +34,22 @@ function Header() {
 }
 
 export default Header;
+
+function Links() {
+  return (
+    <>
+      <li>
+        <Link to="/">Home</Link>
+      </li>
+      <li>
+        <Link to="shop">Shop</Link>
+      </li>
+      <li>
+        <Link to="shop/mens">Mens</Link>
+      </li>
+      <li>
+        <Link to="shop/womens">Womens</Link>
+      </li>
+    </>
+  );
+}
