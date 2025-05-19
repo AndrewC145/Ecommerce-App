@@ -1,12 +1,29 @@
-# React + Vite
+# Embers
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A necommerce-app using FakeStore API for a streetwear style, built in React.
 
-Currently, two official plugins are available:
+![embers home page](src/assets/images/embers.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Information
 
-## Expanding the ESLint configuration
+An ecommerce-app with dynamic routing from React-Router DOM, responsive styling, and multiple products in Men's and Women's.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tools Used
+
+- React + Vite
+- Tailwind CSS
+- HTML5
+- JavaScript
+- React Router
+
+## Getting Started
+
+```
+git clone https://github.com/AndrewC145/Ecommerce-App.git
+
+cd Ecommerce-App
+
+npm install
+
+npm run dev
+```
